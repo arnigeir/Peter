@@ -1,0 +1,20 @@
+﻿drop table peter_app
+;
+create table peter_app(appid varchar2(32) primary key)
+;
+drop table peter_user
+;
+create table peter_user(username varchar2(128) primary key,appid varchar2(32) )
+;
+drop table peter_role
+;
+create table peter_role(rolename varchar2(128) primary key,appid varchar2(32))
+;
+drop table peter_approle
+;
+create table peter_approle(appid varchar2(32),rolename varchar2(128))
+;
+drop table peter_userrole
+;
+create table peter_userrole(username varchar2(128),rolename varchar2(128))
+;

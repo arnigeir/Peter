@@ -1,0 +1,34 @@
+﻿drop table peter;
+
+CREATE TABLE PETER.PETER ( 
+    APPID   	VARCHAR2(256) NULL,
+    USERNAME	VARCHAR2(256) NULL,
+    ROLENAME	VARCHAR2(256) NULL)
+;
+
+--  add app and roles (no user)
+insert into peter(appid,username,rolename) values('MSR',null,'ADMIN');
+insert into peter(appid,username,rolename) values('MSR',null,'HR');
+insert into peter(appid,username,rolename) values('MSR',null,'CARDPRINTER');
+
+--  add users and roles
+insert into peter(appid,username,rolename) values('MSR','ARNIG/LSH.IS','ADMIN');
+insert into peter(appid,username,rolename) values('MSR','ARNIG/LSH.IS','HR');
+insert into peter(appid,username,rolename) values('MSR','SIGRUNJ/LSH.IS','HR');
+insert into peter(appid,username,rolename) values('MSR','JONAP/LSH.IS','CARDPRINTER');
+
+select * from peter
+--get all defined roles for app
+select distinct rolename from peter where APPID='MSR'
+
+--  delete a role
+delete from peter where APPID='MSR' and ROLENAME='CARDPRINTER'
+
+--  delete role defined app and user
+DELETE FROM PETER WHERE APPID='MSR' AND ROLENAME='HR' AND USERNAME='ARNIG/LSH.IS'
+
+--  delete the user
+DELETE FROM PETER WHERE APPID='MSR' AND USERNAME='ARNIG/LSH.IS'
+
+-- delete the app
+delete from peter where appid = 'MSR' peter where appid=.. and rolename=.. and username=..
